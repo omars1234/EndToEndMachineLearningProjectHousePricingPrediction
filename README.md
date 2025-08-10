@@ -42,5 +42,6 @@ pip install -r requirements.txt
 
 *add and run model evaluation part*
 
+*add data prediction part*
 
 

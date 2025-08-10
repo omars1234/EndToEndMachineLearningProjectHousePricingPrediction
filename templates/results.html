@@ -85,136 +85,51 @@ This file posts JSON to /predict via fetch — adapt the endpoint to your Flask 
       </div>
 
       <form id="predict-form" class="row" autocomplete="off">
-    
+        <!-- Numerical inputs -->
+        <div class="field">
+          <label for="age">Age</label>
+          <input id="age" name="age" type="number" min="0" step="1" placeholder="e.g. 30" required>
+          <div class="small">Integer value. Required.</div>
+        </div>
+
+        <div class="field">
+          <label for="income">Annual Income (USD)</label>
+          <input id="income" name="income" type="number" min="0" step="0.01" placeholder="e.g. 50000">
+          <div class="small">Allow decimals. Leave blank if not applicable.</div>
+        </div>
+
+        <div class="field">
+          <label for="years_experience">Years of Experience</label>
+          <input id="years_experience" name="years_experience" type="number" min="0" step="0.1" placeholder="e.g. 3.5">
+        </div>
+
+        <div class="field">
+          <label for="num_claims">Number of Claims (past 3 years)</label>
+          <input id="num_claims" name="num_claims" type="number" min="0" step="1" placeholder="0">
+        </div>
+
         <!-- Categorical inputs -->
         <div class="field">
-          <label for="Region_code">Region code</label>
-          <select id="Region_code" name="Region_code">
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender">
             <option value="">-- choose --</option>
-            <option value="2600">2600</option>
-            <option value="2601">2906</option>
-            <option value="2602">2906</option>
-            <option value="2603">2906</option>
-            <option value="2604">2906</option>
-            <option value="2605">2906</option>
-            <option value="2606">2906</option>
-            <option value="2607">2906</option>
-            <option value="2609">2906</option>
-            <option value="2611">2906</option>
-            <option value="2612">2906</option>
-            <option value="2614">2906</option>
-            <option value="2615">2906</option>
-            <option value="2616">2906</option>
-            <option value="2617">2906</option>
-            <option value="2618">2906</option>
-            <option value="2620">2906</option>
-            <option value="2900">2906</option>
-            <option value="2902">2906</option>
-            <option value="2903">2906</option>
-            <option value="2904">2906</option>
-            <option value="2905">2906</option>     
-            <option value="2906">2906</option>
-            <option value="2911">2906</option>
-            <option value="2912">2906</option>
-            <option value="2913">2906</option>
-            <option value="2914">2906</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
           </select>
           <div class="small">Categorical — will be one-hot / encoded server-side.</div>
         </div>
 
         <div class="field">
-          <label for="Property_type">Property type</label>
-          <select id="Property_type" name="Property_type">
+          <label for="vehicle_type">Vehicle Type</label>
+          <select id="vehicle_type" name="vehicle_type">
             <option value="">-- choose --</option>
-            <option value="house">house</option>
-            <option value="unit">unit</option>
+            <option value="Sedan">Sedan</option>
+            <option value="SUV">SUV</option>
+            <option value="Truck">Truck</option>
+            <option value="Motorcycle">Motorcycle</option>
           </select>
-          <div class="small">Categorical — will be one-hot / encoded server-side.</div>
         </div>
-
-
-        <div class="field">
-          <label for="Bedrooms_str">Number of Bedrooms</label>
-          <select id="Bedrooms_str" name="Bedrooms_str">
-            <option value="">-- choose --</option>
-            <option value="Without_bedrooms">Without bedrooms</option>
-            <option value="One_bedrooms">One bedrooms</option>
-            <option value="Two_bedrooms">Two bedrooms</option>
-            <option value="Three_bedrooms">Three bedrooms</option>
-            <option value="Four_bedrooms">Four bedrooms</option>
-            <option value="Five_bedrooms">Five bedrooms</option>
-          </select>
-          <div class="small">Categorical — will be one-hot / encoded server-side.</div>
-        </div>
-
-
-        <div class="field">
-          <label for="Year">Year</label>
-          <select id="Year" name="Year">
-            <option value="">-- choose --</option>
-            <option value="2007">2007</option>
-            <option value="2008">2008</option>
-            <option value="2009">2009</option>
-            <option value="2010">2010</option>
-            <option value="2011">2011</option>
-            <option value="2012">2012</option>
-            <option value="2013">2013</option>
-            <option value="2014">2014</option>
-            <option value="2015">2015</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-          </select>
-          <div class="small">Categorical — will be one-hot / encoded server-side.</div>
-        </div>
-
-
-
-         <div class="field">
-          <label for="Month_name">Month name</label>
-          <select id="Month_name" name="Month_name">
-            <option value="">-- choose --</option>
-            <option value="January">January</option>
-            <option value="February">February</option>
-            <option value="March">March</option>
-            <option value="April">April</option>
-            <option value="May">May</option>
-            <option value="June">June</option>
-            <option value="July">July</option>
-            <option value="August">August</option>
-            <option value="September">September</option>
-            <option value="October">October</option>
-            <option value="November">November</option>
-            <option value="December">December</option>
-          </select>
-          <div class="small">Categorical — will be one-hot / encoded server-side.</div>
-        </div>
-
-
-
-         <div class="field">
-          <label for="Day_name">Day name</label>
-          <select id="Day_name" name="Day_name">
-            <option value="">-- choose --</option>
-            <option value="Saturday">Saturday</option>
-            <option value="Sunday">Sunday</option>
-            <option value="Monday">Monday</option>
-            <option value="Tuesday">Tuesday</option>
-            <option value="Wednesday">Wednesday</option>
-            <option value="Thursday">Thursday</option>
-            <option value="Friday">Friday</option>
-          </select>
-          <div class="small">Categorical — will be one-hot / encoded server-side.</div>
-        </div>
-
-          <!-- Numerical inputs -->
-        <div class="field">
-          <label for="Price_per_bedrooms">Price per bedroom</label>
-          <input id="Price_per_bedrooms" name="Price_per_bedrooms" type="number" min="0.000000e+00",max="2.280000e+06", step="100" placeholder="e.g. 50000" required>
-          <div class="small">Allow decimals </div>
-        </div>      
-
 
         <!-- Extra: text feature -->
         <div class="field fullwidth">
@@ -263,9 +178,9 @@ This file posts JSON to /predict via fetch — adapt the endpoint to your Flask 
       resultBox.style.display='none';
 
       // Simple client-side validation for required numeric fields
-      const Region_code = document.getElementById('Region_code').value;
-      if(!Region_code){
-        showFeedback('Please enter Region_code.', 'error');
+      const age = document.getElementById('age').value;
+      if(!age){
+        showFeedback('Please enter age.', 'error');
         return;
       }
 
@@ -277,7 +192,7 @@ This file posts JSON to /predict via fetch — adapt the endpoint to your Flask 
         // try to convert numeric-looking values to numbers
         if(value !== null && !isNaN(value) && value !== ''){
           // but don't coerce categorical that are numbers intentionally — assume numeric inputs have name matching our numeric fields
-          const numericFields = ['Region_code','Property_type','Bedrooms_str','Year','Month_name','Day_name','Price_per_bedrooms'];
+          const numericFields = ['age','income','years_experience','num_claims'];
           if(numericFields.includes(key)) value = Number(value);
         }
         data[key] = value;
