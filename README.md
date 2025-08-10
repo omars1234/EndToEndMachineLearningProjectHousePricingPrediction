@@ -36,4 +36,9 @@ pip install -r requirements.txt
 
 *add and run data cleaning part*
 
+*add and run data transformation part*
+
+*add and run data training part*
+
+
 
