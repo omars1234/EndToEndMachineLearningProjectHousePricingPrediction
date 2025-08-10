@@ -1,0 +1,39 @@
+columns:
+  - Region_code: category
+  - Price: int
+  - Property_type: category
+  - Bedrooms_str: category
+  - Year: category
+  - Month_name: category
+  - Day_name: category
+  - Price_per_bedrooms: float
+
+numerical_columns:
+  - Price
+  - Price_per_bedrooms
+
+categorical_columns:
+  - Region_code
+  - Property_type
+  - Bedrooms_str
+  - Year
+  - Month_name
+  - Day_name
+
+
+num_features_for_transformation:
+- Price_per_bedrooms
+
+num_features_for_scaling:
+- Price_per_bedrooms
+
+oh_columns:
+  - Region_code
+  - Property_type
+  - Bedrooms_str
+  - Year
+  - Month_name
+  - Day_name
+ 
+
+

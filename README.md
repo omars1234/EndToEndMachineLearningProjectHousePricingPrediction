@@ -33,3 +33,7 @@ pip install -r requirements.txt
 
 
 *add and run data ingestion part*
+
+*add and run data cleaning part*
+
+
