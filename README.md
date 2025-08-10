@@ -40,5 +40,7 @@ pip install -r requirements.txt
 
 *add and run data training part*
 
+*add and run model evaluation part*
+
 
 
