@@ -1,0 +1,29 @@
+import pandas as pd
+import numpy as np
+from pathlib import Path
+import yaml
+from box import ConfigBox
+import os
+from dataclasses import dataclass
+from datetime import datetime
+from constants.main import *
+
+
+
+TIMESTAMP: str = datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
+
+@dataclass
+class TrainingPipelineConfig:
+    artifact_dir: str = os.path.join(ARTIFACT_DIR, TIMESTAMP)
+    timestamp: str = TIMESTAMP
+
+training_pipeline_config: TrainingPipelineConfig = TrainingPipelineConfig()
+
+
+@dataclass
+class DataIngestionConfig:
+
+    data_file_path_dir :Path= DATA_FILE_PATH_DIR
+    data_artifacts_dir:str=ARTIFACT_DIR
+    data_ingested_dir:str=os.path.join(training_pipeline_config.artifact_dir,DATA_INGESTED_DIR_NAME)
+
