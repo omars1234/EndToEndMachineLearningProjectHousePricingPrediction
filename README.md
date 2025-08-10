@@ -32,3 +32,4 @@ pip install -r requirements.txt
 ```
 
 
+*add and run data ingestion part*
