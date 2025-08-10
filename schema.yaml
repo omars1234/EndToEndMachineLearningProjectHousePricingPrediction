@@ -1,0 +1,27 @@
+columns:
+  - datesold : category
+  - postcode : category
+  - price : int
+  - bedrooms : category
+  - propertyType : category
+
+numerical_columns:
+  - price
+
+categorical_columns:
+  - datesold
+  - postcode
+  - bedrooms
+  - propertyType
+
+cols_to_drop:
+  - datesold
+  - bedrooms
+
+cols_dtypes_change_to_to_datetime:
+  - datesold
+
+
+cols_dtypes_change_to_str:
+  - postcode 
+
