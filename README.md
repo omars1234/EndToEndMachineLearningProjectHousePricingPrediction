@@ -51,6 +51,10 @@ pip install -r requirements.txt
 
 ## *create Docker file*
 
+## *WorkFlow Visualization*
+
+![logo](MLOPs_HousePricingPrediction_Project_RaodMap.png)
+
 
 
 
