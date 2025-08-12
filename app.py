@@ -1,9 +1,10 @@
-from flask import Flask,render_template,request,jsonify
+from flask import Flask,render_template,jsonify,Request
 import numpy as np
 from src.pipeline.data_prediction import PredictionPipeline
 import os
 import pandas as pd
 import joblib
+from requests import request
 
 
 app=Flask(__name__)
@@ -34,19 +35,13 @@ def index():
 
             input_data = [Region_code,Property_type,Bedrooms_str,Year,Month_name,Day_name,Price_per_bedrooms]
 
-            #input_data = np.array(input_data).reshape(1, 7)
+            input_data = pd.DataFrame(input_data)
 
-            preprocessor = joblib.load("saved_preproccesor/preprocessor.joblib")
-            model=joblib.load("saved_model/model.joblib")
+            obj = PredictionPipeline()
+            predict = obj.predict(input_data)
 
-
-            #obj = PredictionPipeline()
-            input_data = request.get_json()
-            input_data = pd.DataFrame([input_data])
-            input_data=preprocessor.transform(input_data)
-            prediction = model.predict([input_data])
-    
-            return render_template("index.html", prediction_text=f"Prediction: {prediction}")
+            
+            #return render_template('results.html', prediction = str(predict))
 
 
 if __name__=='__main__':

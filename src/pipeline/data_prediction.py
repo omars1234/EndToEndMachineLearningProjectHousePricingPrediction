@@ -7,13 +7,11 @@ from requests import request
 
 class PredictionPipeline:
     def __init__(self):
-        self.preprocessor = joblib.load(os.path.join(self.data_transformation_config.preproccesor_transformation_object,PREPROCCESOR_TRANSFORMATION_OBJECt_DIR_NAME))
-        self.model=joblib.load(os.path.join(self.data_training_config.model_dir,MODEL_DIR_NAME))
+        self.preprocessor = joblib.load(Path('saved_preproccesor\preprocessor.joblib'))
+        self.model=joblib.load(Path('saved_model\model.joblib'))
 
     def predict(self,input_data):
-        input_data = request.get_json()
-        input_df = pd.DataFrame([input_data])
-        #preprocessed_data=self.preprocessor.transform(input_df)
-        prediction=self.model.predict(input_df)
+        preprocessed_data=self.preprocessor.transform(input_data)
+        prediction=self.model.predict(preprocessed_data)
 
         return np.round(prediction)

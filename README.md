@@ -31,32 +31,48 @@ conda activate EnvHousePricesPrediction
 pip install -r requirements.txt
 ```
 
+## *WorkFlow*
 
-*add and run data ingestion part*
+*entity --> congfig --> components --> pipeleine --> run_pipeline*
 
-*add and run data cleaning part*
+* *add and run data ingestion part*  
+* *add and run data cleaning part*  
+* *add and run data transformation part*  
+* *add and run data training part*  
+* *add and run model evaluation part*   
+ --> python app.py  
+* *add data prediction part*  
+ 
+## *create GitActions :(ci/cd)*
 
-*add and run data transformation part*
+*to check if the run_pipeline.py file run perfectly*
 
-*add and run data training part*
+## *Creating app.py* --> python app.py
 
-*add and run model evaluation part*
-
-*add data prediction part*
-
-*create Docker file*
-
-docker build -t omars1983/housepricingprediction-app .  
-docker login  
-docker push omars1983/housepricingprediction-app:latest  
-docker run -d -p 5000:5000 omars1983/housepricingprediction-app  
-
-*create actions*
+## *create Docker file*
 
 
-*Creating app.py*
 
-*Apply Airflow*
 
-winget install -e --id Astronomer.Astro  --> then restart VSC 
+## *Feedback*
+
+*If you have any feedback, please reach out to us at omars.soub@gmail.com*
+
+## 🔗 Links
+
+[*my github page-https://github.com/omars1234*](https://github.com/omars1234)
+
+## *🛠 Skills*
+*python, R, SQL ,PowerBi ,Tableaue*
+
+
+
+
+
+
+
+
+
+
+ 
 
