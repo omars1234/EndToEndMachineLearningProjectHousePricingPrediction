@@ -6,9 +6,15 @@ from src.pipeline.model_evaluation import ModelEvaluationPipeline
 
 
 def test_DataIngestionTrainingPipeline():
-        assert DataIngestionTrainingPipeline()
+        pipeline = DataIngestionTrainingPipeline()
+        assert pipeline is not None  # simple existence check
+        
+        # maybe call a method and check result
+        #result = pipeline.run()
+        #assert result == expected_result
 
 def test_DataCleaningPipeline():
-        assert DataCleaningPipeline()        
+        pipeline = DataCleaningPipeline()
+        assert pipeline is not None  # simple existence check        
 
 
