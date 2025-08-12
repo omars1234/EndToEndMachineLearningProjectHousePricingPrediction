@@ -13,7 +13,7 @@ class PredictionPipeline:
     def predict(self,input_data):
         input_data = request.get_json()
         input_df = pd.DataFrame([input_data])
-        preprocessed_data=self.preprocessor.transform(input_df)
-        prediction=self.model.predict(preprocessed_data)
+        #preprocessed_data=self.preprocessor.transform(input_df)
+        prediction=self.model.predict(input_df)
 
         return np.round(prediction)

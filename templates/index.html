@@ -232,9 +232,10 @@ This file posts JSON to /predict via fetch — adapt the endpoint to your Flask 
 
         <div id="feedback" class="fullwidth" style="display:none"></div>
         <div id="result" class="result fullwidth" style="display:none">
-          <div>Prediction result:</div>
-          <div class="value" id="result-value">—</div>
-          <div class="small" id="result-details"></div>
+          
+            <div class="value" id="result-value">—</div>
+            <div class="small" id="result-details"></div>
+          {% endif %}
         </div>
       </form>
 

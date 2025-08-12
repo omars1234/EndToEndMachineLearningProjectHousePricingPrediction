@@ -3,12 +3,14 @@ import numpy as np
 from src.pipeline.data_prediction import PredictionPipeline
 import os
 import pandas as pd
+import joblib
+
 
 app=Flask(__name__)
 
 @app.route('/',methods=['GET'])
 def homepage():
-    return render_template('index.html') 
+    return render_template('index2.html') 
 
 
 @app.route('/train',methods=["GET"])
@@ -32,14 +34,19 @@ def index():
 
             input_data = [Region_code,Property_type,Bedrooms_str,Year,Month_name,Day_name,Price_per_bedrooms]
 
-            input_data = np.array(input_data).reshape(1, 7)
+            #input_data = np.array(input_data).reshape(1, 7)
 
-            obj = PredictionPipeline()
-            prediction=obj.predict(input_data)
+            preprocessor = joblib.load("saved_preproccesor/preprocessor.joblib")
+            model=joblib.load("saved_model/model.joblib")
 
-            return jsonify({"prediction": float(prediction[0])})
 
-            #return render_template('results.html', prediction =str(predict))
+            #obj = PredictionPipeline()
+            input_data = request.get_json()
+            input_data = pd.DataFrame([input_data])
+            input_data=preprocessor.transform(input_data)
+            prediction = model.predict([input_data])
+    
+            return render_template("index.html", prediction_text=f"Prediction: {prediction}")
 
 
 if __name__=='__main__':

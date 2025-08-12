@@ -44,4 +44,19 @@ pip install -r requirements.txt
 
 *add data prediction part*
 
+*create Docker file*
+
+docker build -t omars1983/housepricingprediction-app .  
+docker login  
+docker push omars1983/housepricingprediction-app:latest  
+docker run -d -p 5000:5000 omars1983/housepricingprediction-app  
+
+*create actions*
+
+
+*Creating app.py*
+
+*Apply Airflow*
+
+winget install -e --id Astronomer.Astro  --> then restart VSC 
 
