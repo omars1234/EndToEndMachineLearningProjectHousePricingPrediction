@@ -15,6 +15,21 @@ def test_DataIngestionTrainingPipeline():
 
 def test_DataCleaningPipeline():
         pipeline = DataCleaningPipeline()
-        assert pipeline is not None  # simple existence check        
+        assert pipeline is not None  # simple existence check  
+
+
+def test_DataTransformationPipeline():
+        pipeline = DataTransformationPipeline()
+        assert pipeline is not None  # simple existence check  
+
+
+def test_DataTrainingPipeline():
+        pipeline = DataTrainingPipeline()
+        assert pipeline is not None  # simple existence check  
+
+
+def test_ModelEvaluationPipeline():
+        pipeline = ModelEvaluationPipeline()
+        assert pipeline is not None  # simple existence check  
 
 
